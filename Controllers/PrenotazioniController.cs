@@ -9,11 +9,61 @@ using back_end_s6_l05.Models;
     {
         public class PrenotazioniController : Controller
         {
-            public ActionResult Index()
+        public ActionResult ElencoPrenotazioni()
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["HotelDb"].ToString();
+            var conn = new SqlConnection(connectionString);
+            List<Prenotazione> prenotazioni = new List<Prenotazione>();
+
+            try
+            {
+                conn.Open();
+                var command = new SqlCommand("SELECT * FROM Prenotazioni", conn);
+                var reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    var prenotazione = new Prenotazione()
+                    {
+                        ID = (int)reader["ID"],
+                        CodiceFiscale = (string)reader["CodiceFiscale"],
+                        Cognome = (string)reader["Cognome"],
+                        Nome = (string)reader["Nome"],
+                        Citta = (string)reader["Citta"],
+                        Provincia = (string)reader["Provincia"],
+                        Email = (string)reader["Email"],
+                        Telefono = reader["Telefono"] != DBNull.Value ? (int)reader["Telefono"] : (int?)null,
+                        Cellulare = (int)reader["Cellulare"],
+                        NumeroCamera = (int)reader["NumeroCamera"],
+                        DataPrenotazione = (DateTime)reader["DataPrenotazione"],
+                        Anno = (int)reader["Anno"],
+                        PeriodoInizio = (DateTime)reader["PeriodoInizio"],
+                        PeriodoFine = (DateTime)reader["PeriodoFine"],
+                        Caparra = reader["Caparra"] != DBNull.Value ? (decimal)reader["Caparra"] : (decimal?)null,
+                        Tariffa = (decimal)reader["Tariffa"],
+                        TipoSoggiorno = (string)reader["TipoSoggiorno"]
+                    };
+                    prenotazioni.Add(prenotazione);
+                }
+            }
+            catch (Exception)
+            {
+                ViewBag.ErrorMessage = "Errore durante il recupero delle prenotazioni.";
+                return View("Error");
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return View(prenotazioni);
+        }
+
+        public ActionResult Index()
             {
                 if (!HttpContext.User.Identity.IsAuthenticated)
                 {
-                    ViewBag.ErrorMessage = "Devi effettuare il login per registrare un Cliente.";
+                    ViewBag.ErrorMessage = "Devi effettuare il login per registrare una Prenotazione.";
                     return View("Error");
                 }
             string connectionString = ConfigurationManager.ConnectionStrings["HotelDb"].ToString();

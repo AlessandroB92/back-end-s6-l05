@@ -8,7 +8,6 @@ namespace back_end_s6_l05.Controllers
 {
     public class ServiziAggiuntiviController : Controller
     {
-        // GET: ServiziAggiuntivi
         public ActionResult Index()
         {
             return View();

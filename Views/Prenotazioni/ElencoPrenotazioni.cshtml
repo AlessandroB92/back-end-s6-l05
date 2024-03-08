@@ -1,0 +1,45 @@
+﻿@model List<back_end_s6_l05.Models.Prenotazione>
+
+@{
+    ViewBag.Title = "Elenco Prenotazioni";
+}
+
+<h2>Elenco Prenotazioni</h2>
+
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>Codice Fiscale</th>
+            <th>Cognome</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Telefono</th>
+            <th>Numero Camera</th>
+            <th>Data Prenotazione</th>
+            <th>Periodo Inizio</th>
+            <th>Periodo Fine</th>
+            <th>Caparra</th>
+            <th>Tariffa</th>
+            <th>Tipo Soggiorno</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var prenotazione in Model)
+        {
+            <tr>
+                <td>@prenotazione.CodiceFiscale</td>
+                <td>@prenotazione.Cognome</td>
+                <td>@prenotazione.Nome</td>
+                <td>@prenotazione.Email</td>
+                <td>@prenotazione.Telefono</td>
+                <td>@prenotazione.NumeroCamera</td>
+                <td>@prenotazione.DataPrenotazione</td>
+                <td>@prenotazione.PeriodoInizio</td>
+                <td>@prenotazione.PeriodoFine</td>
+                <td>@prenotazione.Caparra</td>
+                <td>@prenotazione.Tariffa</td>
+                <td>@prenotazione.TipoSoggiorno</td>
+            </tr>
+        }
+    </tbody>
+</table>
