@@ -122,6 +122,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CamereController.cs" />
+    <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PrenotazioniController.cs" />
     <Compile Include="Controllers\ServiziAggiuntiviController.cs" />
@@ -130,6 +131,7 @@
     </Compile>
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Camera.cs" />
+    <Compile Include="Models\Checkout.cs" />
     <Compile Include="Models\Prenotazione.cs" />
     <Compile Include="Models\ServizioAggiuntivo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -190,6 +192,8 @@
     <Content Include="Views\ServiziAggiuntivi\Index.cshtml" />
     <Content Include="Views\Admin\Logged.cshtml" />
     <Content Include="Views\Prenotazioni\ElencoPrenotazioni.cshtml" />
+    <Content Include="Views\Checkout\Index.cshtml" />
+    <Content Include="Views\Checkout\CheckoutResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

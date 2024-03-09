@@ -11,6 +11,11 @@ using back_end_s6_l05.Models;
         {
         public ActionResult ElencoPrenotazioni()
         {
+            if (!HttpContext.User.Identity.IsAuthenticated)
+            {
+                ViewBag.ErrorMessage = "Devi effettuare il login per visualizzare le Prenotazioni.";
+                return View("Error");
+            }
             string connectionString = ConfigurationManager.ConnectionStrings["HotelDb"].ToString();
             var conn = new SqlConnection(connectionString);
             List<Prenotazione> prenotazioni = new List<Prenotazione>();

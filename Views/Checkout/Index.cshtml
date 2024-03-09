@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="mb-5">Effettua Checkout</h2>
+
+@using (Html.BeginForm("CheckoutResult", "Checkout"))
+{
+    <label for="ID" class="mb-5">Effettua il checkout: </label>
+    <select name="ID">
+        @foreach (var prenotazione in ViewBag.prenotazioni)
+        {
+            <option value="@prenotazione.ID">@prenotazione.Cognome @prenotazione.Nome</option>
+        }
+    </select>
+    <button class="btn btn-success mx-3">Checkout</button>
+}

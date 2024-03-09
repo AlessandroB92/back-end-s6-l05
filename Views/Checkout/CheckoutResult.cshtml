@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "CheckoutResult";
+}
+
+<h2>Risultato Checkout</h2>
+
+<table class="table">
+    <tr>
+        <th scope="col">Numero Camera</th>
+        <th scope="col">Inizio Soggiorno</th>
+        <th scope="col">Fine Soggiorno</th>
+        <th scope="col">Tipo Servizio</th>
+        <th scope="col">Data Servizio</th>
+        <th scope="col">Totale Importo</th>
+    </tr>
+    @foreach (var checkout in Model)
+    {
+        <tr>
+            <td>@checkout.Numero</td>
+            <td>@checkout.PeriodoInizio</td>
+            <td>@checkout.PeriodoFine</td>
+            <td>@checkout.Descrizione</td>
+            <td>@checkout.DataServizio</td>
+            <td>@checkout.TotaleImporto</td>
+        </tr>
+    }
+</table>
+

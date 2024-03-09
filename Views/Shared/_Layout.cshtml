@@ -20,6 +20,9 @@
                 <ul class="navbar-nav flex-grow-1">
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Registra Prenotazione", "Index", "Prenotazioni", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Lista Prenotazioni", "ElencoPrenotazioni", "Prenotazioni", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Checkout", "Index", "Checkout", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Servizi Aggiuntivi", "Index", "ServiziAggiuntivi", new { area = "" }, new { @class = "nav-link" })</li>
                 </ul>
                 <ul class="navbar-nav justify-content-end">
                     <li><Button class="btn btn-danger">@Html.ActionLink("LogIn", "Index", "Admin", new { area = "" }, new { @class = "nav-link text-white m-0" })</Button></li>
