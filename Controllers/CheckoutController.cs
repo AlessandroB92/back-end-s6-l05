@@ -68,7 +68,6 @@ namespace back_end_s6_l05.Controllers
                             PeriodoFine = (DateTime)readerList["PeriodoFine"],
                             Descrizione = (string)readerList["Descrizione"],
                             DataServizio = (DateTime)readerList["DataServizio"],
-                            TotaleImporto = (decimal)readerList["TotaleImporto"]
                         };
                         checkouts.Add(checkout);
                     }
@@ -78,7 +77,7 @@ namespace back_end_s6_l05.Controllers
             {
                 return View("Error");
             }
-            finally { conn.Close(); }
+            conn.Close();
             return View(checkouts);
         }
     }
